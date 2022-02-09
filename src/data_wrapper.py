@@ -33,7 +33,7 @@ def get_dataset(path, disorder=True):
     for c in classes_names:
         files = glob.glob(os.path.join(path, c, '*.jpg'))
         datas += files
-        classes += [t for i in xrange(len(files))]
+        classes += [t for i in range(len(files))]
         t += 1
     
     if disorder:
@@ -59,7 +59,7 @@ class DataWrapper(Dataset):
             try:            
                 img = Image.open(img_name)
                 img = img.convert(self.image_mode)        
-            except Exception, e:
+            except Exception as e:
                 print("file {} exception: {}".format(img_name, str(e)))                
                 img_name = self.x[(index+i+1) % self.length]
                 cls = self.y[(index+i+1) % self.length]

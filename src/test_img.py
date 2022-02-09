@@ -65,12 +65,12 @@ def main(args):
     imgs_path += glob.glob(os.path.join(args.test_data_dir, '*.jpeg'))
     imgs_path += glob.glob(os.path.join(args.test_data_dir, '*.png'))
 
-    for i in xrange((len(imgs_path) + args.batch_size - 1) / args.batch_size):
+    for i in range((len(imgs_path) + args.batch_size - 1) / args.batch_size):
         if args.gpu[0] >=0:
             imgs = torch.FloatTensor(args.batch_size, 3, args.image_size, args.image_size).cuda()
         else:
             imgs = torch.FloatTensor(args.batch_size, 3, args.image_size, args.image_size)
-        for j in xrange(min(args.batch_size, len(imgs_path))):
+        for j in range(min(args.batch_size, len(imgs_path))):
             img = Image.open(imgs_path[i*args.batch_size + j])
             img = img.convert("RGB")            
             imgs[j] = transformations(img)
@@ -79,7 +79,7 @@ def main(args):
         pred = softmax(pred)
         _, pred_1 = pred.topk(1, 1, True, True)
 
-        for j in xrange(min(args.batch_size, len(imgs_path))):            
+        for j in range(min(args.batch_size, len(imgs_path))):            
             c = default_class[pred_1.cpu().numpy()[0][0]]
             print("{} -- {} {}".format(imgs_path[i*args.batch_size + j], pred_1, c))
 

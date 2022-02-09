@@ -21,7 +21,7 @@ def parse_args():
     """Parse input arguments."""
     parser = argparse.ArgumentParser(description='Head pose estimation using the Hopenet network.')
     parser.add_argument('--gpu', dest='gpu', help='GPU device id to use', nargs='+',
-            default=[0, 1], type=int)
+            default=[0], type=int)
     parser.add_argument('--num_epochs', dest='num_epochs', help='Maximum number of training epochs.',
           default=100, type=int)
     parser.add_argument('--batch_size', dest='batch_size', help='Batch size.',

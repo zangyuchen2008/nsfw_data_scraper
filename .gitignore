@@ -1,0 +1,17 @@
+.idea/
+/demos/
+/tmp/
+/gpc_auto_test/*
+/gpc_src/nn_models/core/*
+/gpc_src/nn_models/assistant/*
+/gpc_src/wheels/*
+launch.json
+*__pycache__*
+*.out
+*.log
+*.zip
+*.tar.gz
+yuchen_test_input
+yuchen_test_output
+restart_log
+data/
